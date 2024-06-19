@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NewsItem from "../NewsItem";
-import imageWoman from "../assets/imageWoman.jpg";
+import imageWoman from "../../assets/imageWoman.jpg";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 

@@ -1,0 +1,77 @@
+@import "../../styles/global";
+@import "../../styles/variables";
+
+.navbar {
+  background-color: $primary_color-1;
+  padding: 1rem;
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+    }
+  }
+
+  &__icon {
+    fill: $primary_color-5;
+    margin-right: 0.5rem;
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary_color-4;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    margin-left: 1rem;
+  }
+
+  &__link {
+    color: $primary_color-6;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $primary_color-2;
+      color: $primary_color-6;
+    }
+
+    &--active {
+      
+      color: $primary_color-6;
+      font-weight: bold;
+    }
+
+    &:hover,
+    &:focus {
+      text-decoration: none !important;
+    }
+  }
+}

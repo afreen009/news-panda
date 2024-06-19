@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
 import imageWoman from "../assets/imageWoman.jpg";
-import Loading from "../assets/loading.gif";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -66,7 +65,9 @@ export default class News extends Component {
       }&page=${this.state.page + 1}`;
 
       let data = await fetch(url);
+      
       let parsedData = await data.json();
+      console.log(parsedData.totalResults);
 
       this.setState({
         articles: this.state.articles.concat(parsedData.articles),
@@ -77,30 +78,25 @@ export default class News extends Component {
   };
 
   render() {
-    // if (this.state.loading) {
-    //   return (
-    //     <>
-    //       <Loading />
-    //     </>
-    //   );
-    // } else {
     return (
+     this.state.articles ?<>
       <div className="flex flex-col justify-center items-center ">
         <h1 className="text-2xl text-center pt-10 font-bold ">
           News Top Headlines
         </h1>
-        {this.state.loading && <Loading />}
+        {this.state.loading && <p>Loading.....</p>}
 
         <InfiniteScroll
           dataLength={this.state.articles.length}
           next={this.fetchMoreData}
           hasMore={this.state.articles.length !== this.state.totalResults}
-          loader={<Loading />}
+          loader={<p>Loading.....</p>}
         >
-          <div className="grid grid-cols-3 gap-8 p-14">
+          
             {this.state.articles.map((element) => {
               return (
-                <div key={element.url}>
+                <div className="grid grid-cols-3 gap-8 p-14" key={element.imageUrl}>
+                <div >
                   <NewsItem
                     title={element.title}
                     description={element.description}
@@ -112,9 +108,10 @@ export default class News extends Component {
                     date={element.publishedAt}
                   />
                 </div>
+                </div>
               );
             })}
-          </div>
+          
         </InfiniteScroll>
 
         {/* pagination */}
@@ -139,6 +136,8 @@ export default class News extends Component {
             </button>
           </div> */}
       </div>
+     </>
+     :<p>Loading.....</p>
     );
   }
 }

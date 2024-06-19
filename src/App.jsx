@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
 import News from "./Components/News";
+import '../src/index.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
@@ -21,6 +22,17 @@ const App = () => {
             }
           />
           <Route
+            path="/general"
+            element={
+              <News
+                category="general"
+                pageSize={9}
+                country="in"
+                key="general"
+              />
+            }
+          />
+          {/* <Route
             path="/business"
             element={
               <News
@@ -48,17 +60,7 @@ const App = () => {
               <News category="sports" pageSize={9} country="in" key="sports" />
             }
           />
-          <Route
-            path="/general"
-            element={
-              <News
-                category="general"
-                pageSize={9}
-                country="in"
-                key="general"
-              />
-            }
-          />
+
           <Route
             path="/science"
             element={
@@ -86,7 +88,7 @@ const App = () => {
                 key="technology"
               />
             }
-          />
+          /> */}
         </Routes>
       </div>
     </Router>

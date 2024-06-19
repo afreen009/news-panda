@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import './../News/News';
 import InfiniteScroll from "react-infinite-scroll-component";
 import './../News/News.scss';
+import Loading from '../Loading/Loading';
 
 export default class News extends Component {
   static defaultProps = {
@@ -82,7 +83,7 @@ export default class News extends Component {
   render() {
     return (
      this.state.articles ?<>
-      <section className="news__innersec">
+      <section className="news__sec">
         <h1 className="news__title text-2xl text-center pt-10 font-bold ">
           News Top Headlines
         </h1>
@@ -97,8 +98,8 @@ export default class News extends Component {
           
             {this.state.articles.map((element) => {
               return (
-                <div className="grid grid-cols-3 gap-8 p-14" key={element.imageUrl}>
-                  <div >
+                <div className="news__innersec grid grid-cols-3 gap-8 p-14" key={element.imageUrl}>
+                  <div className="news__innersecDiv">
                     <NewsItem
                       title={element.title}
                       description={element.description}
@@ -115,31 +116,9 @@ export default class News extends Component {
             })}
           
         </InfiniteScroll>
-
-        {/* pagination */}
-
-        {/* <div className="flex p-8">
-            <button
-              disabled={this.state.page <= 1}
-              onClick={this.handlePrevClick}
-              className="flex items-center justify-center px-4 h-10 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              Previous
-            </button>
-
-            <button
-              disabled={
-                this.state.page + 1 > Math.ceil(this.state.totalResults / 20)
-              }
-              onClick={this.handleNextClick}
-              className="flex items-center justify-center px-4 h-10 ml-3 text-base font-medium text-gray-500 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-            >
-              Next
-            </button>
-          </div> */}
       </section>
      </>
-     :<p>Loading.....</p>
+     :<Loading/>
     );
   }
 }

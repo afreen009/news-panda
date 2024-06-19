@@ -2,10 +2,18 @@
 @use '../../styles/variables' as *;
 
 .news {
-    &__innersec {
-        display: inline-block;
+    &__sec {
+        justify-content: center;
+        text-align: center;
         width: 100vw;
-        // background-color: $primary_color-1;
         height: 100vh;
     }
-}
+    &__innersec {
+        height: auto;
+        display: inline-flex;
+        flex-direction: row;
+    }
+    &__title {
+        font-size: 2.625rem;
+    }
+}   

@@ -1,2 +1,11 @@
-@use '../../styles/global';
-@use '../../styles/variables';
+@use '../../styles/global' as *;
+@use '../../styles/variables' as *;
+
+.news {
+    &__innersec {
+        display: inline-block;
+        width: 100vw;
+        // background-color: $primary_color-1;
+        height: 100vh;
+    }
+}

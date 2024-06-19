@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import '../NewsItem/NewsItem.scss';
 
 export default class NewsItem extends Component {
   render() {
     let { title, description, imageUrl, newsUrl, author, date } = this.props;
     return (
-      <div className=" ">
+      <div className="NewsItem__divSec">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <a href="#">
-            <img className="rounded-t-lg" src={imageUrl} alt="" />
+            <img className="NewsItem__img rounded-t-lg" src={imageUrl} alt="" />
           </a>
 
           <div className="p-5">
@@ -34,13 +35,6 @@ export default class NewsItem extends Component {
                 fill="none"
                 viewBox="0 0 14 10"
               >
-                {/* <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                /> */}
               </svg>
             </a>
           </div>

@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import NewsItem from "../NewsItem";
+import NewsItem from "../NewsItem/NewsItem";
 import imageWoman from "../../assets/imageWoman.jpg";
 import PropTypes from "prop-types";
+import './../News/News';
 import InfiniteScroll from "react-infinite-scroll-component";
+import './../News/News.scss';
 
 export default class News extends Component {
   static defaultProps = {
@@ -80,8 +82,8 @@ export default class News extends Component {
   render() {
     return (
      this.state.articles ?<>
-      <div className="flex flex-col justify-center items-center ">
-        <h1 className="text-2xl text-center pt-10 font-bold ">
+      <section className="news__innersec">
+        <h1 className="news__title text-2xl text-center pt-10 font-bold ">
           News Top Headlines
         </h1>
         {this.state.loading && <p>Loading.....</p>}
@@ -96,18 +98,18 @@ export default class News extends Component {
             {this.state.articles.map((element) => {
               return (
                 <div className="grid grid-cols-3 gap-8 p-14" key={element.imageUrl}>
-                <div >
-                  <NewsItem
-                    title={element.title}
-                    description={element.description}
-                    imageUrl={
-                      element.urlToImage ? element.urlToImage : imageWoman
-                    }
-                    newsUrl={element.url}
-                    author={element.author}
-                    date={element.publishedAt}
-                  />
-                </div>
+                  <div >
+                    <NewsItem
+                      title={element.title}
+                      description={element.description}
+                      imageUrl={
+                        element.urlToImage ? element.urlToImage : imageWoman
+                      }
+                      newsUrl={element.url}
+                      author={element.author}
+                      date={element.publishedAt}
+                    />
+                  </div>
                 </div>
               );
             })}
@@ -135,7 +137,7 @@ export default class News extends Component {
               Next
             </button>
           </div> */}
-      </div>
+      </section>
      </>
      :<p>Loading.....</p>
     );

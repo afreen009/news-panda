@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Components/Navbar";
 import News from "./Components/News/News";
 import '../src/index.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
@@ -8,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <div>
-        <Navbar />
+        {/* <Navbar /> */}
         <Routes>
           <Route
             path="/"
